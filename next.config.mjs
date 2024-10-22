@@ -30,6 +30,7 @@ const nextConfig = {
           },
         ];
       },
+      taticPageGenerationTimeout: 240
 };
 
 export default nextConfig;

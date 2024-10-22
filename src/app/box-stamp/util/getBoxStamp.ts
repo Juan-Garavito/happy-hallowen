@@ -1,8 +1,8 @@
-import { fetchImages } from "../util/fetchImages";
-import saveStampsForUser from "../util/saveStampsForUser";
+import { fetchImages } from "./fetchImages";
+import saveStampsForUser from "./saveStampsForUser";
 
 
-export async function useBoxStamp(numStamp: number) {
+export async function getBoxStamp(numStamp: number) {
   const attemptsMaximum : number = 5;
   let attemptsCreate: number = 0;
   const imagesBox: Array<string> = [];
