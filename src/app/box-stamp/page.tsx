@@ -45,7 +45,7 @@ export default function Page() {
             ]);
         };
     
-        fetchWithTimeout("/api/getBox")
+        fetchWithTimeout("/api/getBox",{}, 120000)
             .then((res) => (res as Response).json())
             .then(data => {
                 console.log("data: " + data);
