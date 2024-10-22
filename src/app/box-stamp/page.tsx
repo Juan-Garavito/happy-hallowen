@@ -79,7 +79,7 @@ export default function Page() {
                 Unopened: <span className="text-orange-500">{numBoxUnopened ?? "?"}</span>
             </p>
 
-            <Link href="/" className={`absolute top-[2%] right-[2%] text-orange-500 hover:scale-110 transition-all ease-in-out`}>
+            <Link href="./" className={`absolute top-[2%] right-[2%] text-orange-500 hover:scale-110 transition-all ease-in-out`}>
                 <Home size={40} />
             </Link>
 

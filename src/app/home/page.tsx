@@ -46,12 +46,12 @@ export default async function Home() {
         <div className={`${amatic_SC.className} space-y-6 p-6`}>
           {session ? (
             <>
-              <Link href="/you-album">
+              <Link href="./you-album">
                 <Button  className="w-full mb-2 text-2xl font-bold hover:bg-orange-500 hover:text-black transition-colors bg-gray-800">
                   <Moon className="mr-2" /> Your Haunted Album
                 </Button>
               </Link>
-              <Link href="/box-stamp">
+              <Link href="./box-stamp">
                 <Button  className="w-full text-2xl font-bold hover:bg-orange-500 hover:text-black transition-colors bg-gray-800">
                   <Candy className="mr-2" /> Your Spooky Stamps
                 </Button>

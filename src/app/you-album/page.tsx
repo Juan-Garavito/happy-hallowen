@@ -38,7 +38,7 @@ export default function Page() {
                 </div>
             </div>
             <PanelAlbum onRefCurrentAlbum={onRefCurrentAlbum} onSetSlotsFree={onSetSlotsFree}/>
-            <Link href="/" className={`absolute top-[2%] left-[2%] text-orange-500 hover:scale-110 transition-all ease-in-out`}>
+            <Link href="./" className={`absolute top-[2%] left-[2%] text-orange-500 hover:scale-110 transition-all ease-in-out`}>
                 <Home size={40} />
             </Link>
 
