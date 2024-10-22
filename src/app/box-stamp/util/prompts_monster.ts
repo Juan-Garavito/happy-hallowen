@@ -68,5 +68,56 @@ export const PROMPTS_MONSTER =
   },
   {
     prompt: "A haunted doll with big, creepy eyes and a cracked face cartoon"
+  },
+  {
+    prompt: "A scarecrow with a pumpkin head and glowing eyes cartoon"
+  },
+  {
+    prompt: "A three-headed monster with glowing horns and sharp teeth cartoon"
+  },
+  {
+    prompt: "A swamp monster with slimy skin and algae-covered body cartoon"
+  },
+  {
+    prompt: "A troll with a giant club and a mischievous grin cartoon"
+  },
+  {
+    prompt: "A vampire bat with glowing red eyes and sharp fangs cartoon"
+  },
+  {
+    prompt: "A robotic monster with glowing circuits and sharp claws cartoon"
+  },
+  {
+    prompt: "A ghostly figure with a hood and glowing green eyes cartoon"
+  },
+  {
+    prompt: "A monstrous tree with twisted branches and a scary face cartoon"
+  },
+  {
+    prompt: "A fish-like creature with sharp fins and glowing eyes cartoon"
+  },
+  {
+    prompt: "A giant eyeball monster with tentacles and sharp teeth cartoon"
+  },
+  {
+    prompt: "A creepy scarecrow with a tattered coat and glowing red eyes cartoon"
+  },
+  {
+    prompt: "A shadowy monster with glowing white eyes and a sinister grin cartoon"
+  },
+  {
+    prompt: "A monster with tentacles and multiple heads cartoon"
+  },
+  {
+    prompt: "A skeleton warrior with glowing swords and an evil laugh cartoon"
+  },
+  {
+    prompt: "A dragon-like creature with molten lava skin and fiery eyes cartoon"
+  },
+  {
+    prompt: "A troll with stone skin and glowing blue eyes cartoon"
+  },
+  {
+    prompt: "A ghostly knight in rusted armor with glowing eyes cartoon"
   }
 ];
