@@ -6,9 +6,9 @@ import { NextResponse } from "next/server";
 
 
 export async function GET() {
-    const { imagesBox, error } = await getBoxStamp(3);
+    const { imagesBox, error } : {imagesBox : string[] , error : string | null} = await getBoxStamp(3);
     if(error){
-        return NextResponse.json({error}, {status : 500});
+        return NextResponse.json(error, {status : 500});
     }
 
     return NextResponse.json(imagesBox, {status : 200});

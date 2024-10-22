@@ -35,23 +35,37 @@ export default function Page() {
 
     useEffect(() => {
         if (!abierto) return;
-
-        fetch("/api/getBox")
-            .then(res => res.json())
+    
+        const fetchWithTimeout = (url: string , options = {}, timeout = 5000) => {
+            return Promise.race([
+                fetch(url, options),
+                new Promise((_, reject) => 
+                    setTimeout(() => reject(new Error('Request timed out')), timeout)
+                ),
+            ]);
+        };
+    
+        fetchWithTimeout("/api/getBox")
+            .then((res) => (res as Response).json())
             .then(data => {
                 console.log("data: " + data);
                 if (data.error) {
                     setError(data.error);
                     return;
                 }
-
+    
                 if (numBoxUnopened !== null) {
-                    setNumBoxUnopened(() => numBoxUnopened - 1);
+                    setNumBoxUnopened(prev => (prev !== null ? prev - 1 : null));
                 }
-
+    
                 setImagesBox(data);
             })
+            .catch(err => {
+                setError(err.message); 
+                console.error("Fetch error:", err);
+            });
     }, [abierto, reset]);
+    
 
 
 
