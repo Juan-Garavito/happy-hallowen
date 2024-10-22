@@ -4,18 +4,26 @@ import { createStamp } from "./createStamp";
 import { uploadImage } from "./uploadImage";
 
 
-const getIdImagesBaseline = (): string => {
-    return IDIMAGE_BASELINE[Math.floor(Math.random() * IDIMAGE_BASELINE.length)].idImage;
+const getIdImagesBaseline = (): string[] => {
+    const idImageBaseline: string[] = [];
+    const numIdBaseline : number = 5;
+    while (idImageBaseline.length < numIdBaseline) {
+        const idImage = IDIMAGE_BASELINE[Math.floor(Math.random() * IDIMAGE_BASELINE.length)].idImage;
+        if (!idImageBaseline.includes(idImage)) {
+            idImageBaseline.push(idImage);
+        }
+    }
+    return idImageBaseline; 
 };
   
 
 export async function fetchImages () : Promise<{image: string | null, error : string | null}> {
-    const idImage: string = getIdImagesBaseline();
+    const idImage: string[] = getIdImagesBaseline();
     console.log("idImage: " + idImage);
     let error: string | null = null;
   
     try {
-      const image : CloudinaryImage = await createStamp(idImage);
+      const image : CloudinaryImage[] = await createStamp(idImage);
       //console.log("Image: " + JSON.stringify(image));
       const dataImage = await uploadImage(image);
       //const dataImage = { error: "error" };  

@@ -53,12 +53,18 @@ interface uploadImage{
   image: string | null ;
 }
 
-export async function uploadImage(image: CloudinaryImage): Promise<uploadImage> {
+export async function uploadImage(images: CloudinaryImage[]): Promise<uploadImage> {
+  const promisesImages: Promise<any>[] = []
   
   try{
-    const url = image.toURL();
-    console.log("url : " + url);
-    const responseURL = await fetch(url);
+
+    for (let index = 0; index < images.length; index++) {
+      const url = images[index].toURL();
+      promisesImages.push(fetch(url));
+      console.log("url : " + url);
+    }
+
+    const responseURL = await Promise.race(promisesImages);
     const blob = await responseURL.blob();
     console.log("blob : " + JSON.stringify(blob.size));
 

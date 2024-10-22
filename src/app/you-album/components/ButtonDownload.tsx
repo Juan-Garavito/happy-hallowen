@@ -1,7 +1,7 @@
 import { RefObject } from "react";
 
 interface ButtonDownloadProps {
-    onClick: () => void;
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 export default function ButtonDownload({ onClick }: ButtonDownloadProps) {
     return (

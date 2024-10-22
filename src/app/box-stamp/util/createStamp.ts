@@ -9,11 +9,13 @@ import { json } from "stream/consumers";
 
 const getRandomPromptMonster = () => PROMPTS_MONSTER[Math.floor(Math.random() * PROMPTS_MONSTER.length)].prompt; 
 
-export async function createStamp(dataImage: string): Promise<CloudinaryImage> {
+export async function createStamp(dataImage: string[]): Promise<CloudinaryImage[]> {
 
-    const image : CloudinaryImage = await cld.image(dataImage);
-    const prompt : string = getRandomPromptMonster();
+  const prompt : string = getRandomPromptMonster();
+  const imagesCloudinary: CloudinaryImage[] = []
 
+  for await (const data of dataImage) {
+    const image : CloudinaryImage = await cld.image(data);
     image.effect(generativeReplace()
       .from("human or monster or animal")
       .to(prompt)
@@ -22,7 +24,10 @@ export async function createStamp(dataImage: string): Promise<CloudinaryImage> {
         .prompt("A random color and worn texture with a Halloween theme"))
         .resize(crop().width(250).height(300).gravity(focusOn(FocusOn.face())))
       .effect(outline().color("white").width(10));
-  
-    return image;
+      imagesCloudinary.push(image);
+  }
+    
+ 
+    return imagesCloudinary;
 }
   

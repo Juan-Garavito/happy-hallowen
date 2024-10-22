@@ -7,6 +7,7 @@ import PanelStampsSkeleton from "./panelStampSkeleton";
 
 export default function PanelStamps() {
   const [stamps, setStamps] = useState<string[]>([]);
+  const [firstRender, setFirstRender] = useState(false);
   const parentRef = useRef(null);
 
   useEffect(() => {
@@ -14,6 +15,7 @@ export default function PanelStamps() {
       fetch("./api/getYouStamps")
         .then((res) => res.json())
         .then((res) => {
+          setFirstRender(true);
           setStamps(res);
         })
     }
@@ -44,7 +46,7 @@ export default function PanelStamps() {
 
   return (
     <div className="h-screen bg-gray-800 p-4 overflow-hidden">
-    <h2 className="text-3xl font-bold mb-4 text-orange-500">Monster Stamps</h2>
+    <h2 className="text-3xl font-bold mt-2 text-orange-500">Monster Stamps</h2>
     <div className="grid p-4 h-full">
       <ul ref={parentRef} className="grid grid-cols-3 justify-items-center h-full ">
         {stamps.map((stamp, index) => (
@@ -62,7 +64,9 @@ export default function PanelStamps() {
             />
           </li>
         ))}
-        {stamps.length < 1 &&  <PanelStampsSkeleton/>}
+        {!firstRender &&  <PanelStampsSkeleton/>}
+        {firstRender && stamps.length < 1 && <p className="text-white text-4xl">No stamps available. You have to open the stamp box.
+          </p>}
       </ul>
     </div>
   </div>

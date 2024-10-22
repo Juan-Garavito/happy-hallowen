@@ -10,9 +10,8 @@ import { useSession } from "next-auth/react";
 import BoxStampSkeleton from "./components/BoxStampSkeleton";
 import MesssageError from "./components/MessageError";
 import Link from "next/link";
+import { NUM_LIMIT_BOXES, NUM_STAMPS_IN_BOX } from "./util/constBoxStamp";
 
-const NUM_STAMPS_IN_BOX = 3;
-const NUM_LIMIT_BOXES = 5;
 
 export default function Page() {
     const { data: session } = useSession();
@@ -36,17 +35,9 @@ export default function Page() {
     useEffect(() => {
         if (!abierto) return;
     
-        const fetchWithTimeout = (url: string , options = {}, timeout = 5000) => {
-            return Promise.race([
-                fetch(url, options),
-                new Promise((_, reject) => 
-                    setTimeout(() => reject(new Error('Request timed out')), timeout)
-                ),
-            ]);
-        };
     
-        fetchWithTimeout("/api/getBox",{}, 120000)
-            .then((res) => (res as Response).json())
+        fetch("/api/getBox")
+            .then((res) => res.json())
             .then(data => {
                 console.log("data: " + data);
                 if (data.error) {
@@ -71,7 +62,7 @@ export default function Page() {
 
     function onClickOpenBox() {
 
-        if (abierto && numBoxUnopened !== null && numBoxUnopened > 0 && imagesBox.length == 3) {
+        if (abierto && numBoxUnopened !== null && numBoxUnopened > 0 && imagesBox.length == NUM_STAMPS_IN_BOX) {
             setReset(() => !reset);
             setImagesBox([]);
             return;

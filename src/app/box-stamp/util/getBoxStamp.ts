@@ -31,6 +31,8 @@ export async function getBoxStamp(numStamp: number) {
 
   const responseObj = await createPromise();
 
+  console.log("responseObj: " + JSON.stringify(responseObj));
+
   if (responseObj.error) {
     return { imagesBox, error: responseObj.error };
   }
