@@ -57,18 +57,14 @@ export default function Page() {
 
     function onClickOpenBox() {
 
-
-        console.log("click")
-        console.log(abierto, numBoxUnopened, imagesBox.length);
         if (abierto && numBoxUnopened !== null && numBoxUnopened > 0 && imagesBox.length == 3) {
             setReset(() => !reset);
             setImagesBox([]);
             return;
         }
-        console.log("No more boxes");
         if (numBoxUnopened !== null && numBoxUnopened > 0) {
             setAbierto(true);
-            console.log("boxes");
+
             return
         }
     }

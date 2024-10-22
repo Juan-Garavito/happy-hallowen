@@ -1,4 +1,3 @@
-import { console } from "inspector";
 import { firestorage } from "../../DB/firebase"; // Ensure this path is correct and the module exists
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 

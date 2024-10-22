@@ -32,9 +32,6 @@ export default function PanelAlbum({ onRefCurrentAlbum, onSetSlotsFree }: PanelA
                 onDragend: (event) => {
                   event.draggedNode.el.style.opacity = "1";
                 },
-                onTransfer: (event) => {
-                  console.log(event);
-                },
                 plugins: [
                   dropOrSwap({
                       shouldSwap: () => true

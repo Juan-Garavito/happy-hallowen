@@ -25,7 +25,6 @@ export default function Page() {
 
     function onSetSlotsFree(slotsFree: number) {
         setSlotsFree(slotsFree);
-        console.log(slotsFree);
     }
 
 
