@@ -39,7 +39,7 @@ export default function Page() {
         fetch("/api/getBox")
             .then(res => res.json())
             .then(data => {
-
+                console.log("data: " + data);
                 if (data.error) {
                     setError(data.error);
                     return;

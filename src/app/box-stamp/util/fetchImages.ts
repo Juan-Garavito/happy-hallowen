@@ -11,6 +11,7 @@ const getIdImagesBaseline = (): string => {
 
 export async function fetchImages () : Promise<{image: string | null, error : string | null}> {
     const idImage: string = getIdImagesBaseline();
+    console.log("idImage: " + idImage);
     let error: string | null = null;
   
     try {

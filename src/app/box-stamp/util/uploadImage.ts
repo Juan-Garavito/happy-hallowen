@@ -57,6 +57,7 @@ export async function uploadImage(image: CloudinaryImage): Promise<uploadImage> 
   
   try{
     const url = image.toURL();
+    console.log("url : " + url);
     const responseURL = await fetch(url);
     const blob = await responseURL.blob();
     console.log("blob : " + JSON.stringify(blob.size));
